@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:login_ui/login/facebook.dart';
+import 'package:login_ui/login/google.dart';
+import 'package:login_ui/pages/sign_up_page.dart';
+import 'package:login_ui/screens/home/home_screen.dart';
 import 'package:login_ui/utilities/constants.dart';
 
 class LoginScreens extends StatefulWidget {
@@ -31,7 +35,7 @@ class _LoginScreensState extends State<LoginScreens> {
               contentPadding: EdgeInsets.only(top: 14),
               prefixIcon: Icon(
                 Icons.email,
-                color: Colors.white,
+                color: Color(0xFF383C4A),
               ),
               hintText: 'Enter your Email',
               hintStyle: kHintTextStyle,
@@ -64,7 +68,7 @@ class _LoginScreensState extends State<LoginScreens> {
               contentPadding: EdgeInsets.only(top: 14),
               prefixIcon: Icon(
                 Icons.lock,
-                color: Colors.white,
+                color: Color(0xFF383C4A),
               ),
               hintText: 'Enter your Password',
               hintStyle: kHintTextStyle,
@@ -120,16 +124,21 @@ class _LoginScreensState extends State<LoginScreens> {
       padding: EdgeInsets.symmetric(vertical: 25),
       width: double.infinity,
       child: FloatingActionButton(
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFFF8F8FA),
         elevation: 5,
-        onPressed: () => print('Login Button Pressed'),
+        onPressed: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => HomeScreen(),
+          ),
+        ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30),
         ),
         child: Text(
           'LOGIN',
           style: TextStyle(
-            color: Color(0xFF3E5170),
+            color: Color(0xFF383C4A),
             letterSpacing: 1.5,
             fontSize: 18,
             fontWeight: FontWeight.bold,
@@ -175,10 +184,10 @@ class _LoginScreensState extends State<LoginScreens> {
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
-                      Color(0xFFD9D2E9),
-                      Color(0xFFE6E6FA),
-                      Color(0xFFD7DFFD),
-                      Color(0xFF9DA0D0),
+                      Color(0xFFC0C5CE),
+                      Color(0xFFA7ADBA),
+                      Color(0xFF708090),
+                      Color(0xFF4F5B66),
                     ],
                     stops: [0.1, 0.4, 0.7, 0.9],
                   ),
@@ -217,7 +226,12 @@ class _LoginScreensState extends State<LoginScreens> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             GestureDetector(
-                              onTap: () => print('Login with Facebook'),
+                              onTap: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => FacebookLogin(),
+                                ),
+                              ),
                               child: Container(
                                 height: 60,
                                 width: 60,
@@ -239,7 +253,12 @@ class _LoginScreensState extends State<LoginScreens> {
                               ),
                             ),
                             GestureDetector(
-                              onTap: () => print('Login with Google'),
+                              onTap: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => GoogleLogin(),
+                                ),
+                              ),
                               child: Container(
                                 height: 60,
                                 width: 60,
@@ -263,27 +282,57 @@ class _LoginScreensState extends State<LoginScreens> {
                           ],
                         ),
                       ),
-                      RichText(
-                        text: TextSpan(
-                          children: [
-                            TextSpan(
-                              text: 'Don/t have An Account?',
+                      // RichText(
+                      //   text: TextSpan(
+                      //     children: [
+                      //       TextSpan(
+                      //         text: 'Don/t have An Account?',
+                      //         style: TextStyle(
+                      //           color: Colors.white,
+                      //           fontSize: 18,
+                      //           fontWeight: FontWeight.w100,
+                      //         ),
+                      //       ),
+                      //       TextSpan(
+                      //         text: 'Sign Up',
+                      //         style: TextStyle(
+                      //           color: Colors.white,
+                      //           fontSize: 18,
+                      //           fontWeight: FontWeight.bold,
+                      //         ),
+                      //       ),
+                      //     ],
+                      //   ),
+                      // ),
+                      SizedBox(height: 0.1),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Don/t have An Account?',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w100,
+                            ),
+                          ),
+                          TextButton(
+                            onPressed: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SignUpPage(),
+                              ),
+                            ),
+                            child: Text(
+                              'Sign Up',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 18,
-                                fontWeight: FontWeight.w100,
+                                fontWeight: FontWeight.w500,
                               ),
                             ),
-                            TextSpan(
-                              text: 'Sign Up',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ],
                   ),

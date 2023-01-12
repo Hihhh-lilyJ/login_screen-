@@ -11,6 +11,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'LogIn',
+      // routes: {
+      //   '/': (context) => HomeScreen(),
+      //   '/second': (context) => FacebookLogin(),
+      //   '/third': (context) => GoogleLogin(),
+      // },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         scaffoldBackgroundColor: kBackgroundColor,

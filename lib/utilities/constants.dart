@@ -5,20 +5,20 @@ const kPrimaryColor = Color(0xFF2D5D70);
 const kSecondaryColor = Color(0xFF265DAB);
 
 final kHintTextStyle = TextStyle(
-  color: Colors.white54,
+  color: Color(0xFF383C4A),
 );
 
 final kLabelStyle = TextStyle(
-  color: Colors.white,
+  color: Colors.white54,
   fontWeight: FontWeight.bold,
 );
 
 final kBoxDecorationStyle = BoxDecoration(
-  color: Color(0xFF949AD0),
+  color: Color(0xFFF8F8FA),
   borderRadius: BorderRadius.circular(10.0),
   boxShadow: [
     BoxShadow(
-      color: Colors.black12,
+      color: Color(0xFF999999),
       blurRadius: 6.0,
       offset: Offset(0, 2),
     ),
